@@ -23,8 +23,11 @@ class TableViewController: UITableViewController {
         miDB=FMDatabase(path: objetoFileHelper.pathArchivoEnCarpetaDocumentos("Proyecto"))
         SelectAll()
         CargarJson()
+        SelectAll()
+        self.tableView.reloadData()
     }
     func SelectAll(){
+        nombres = []
         if (miDB!.open()){
             let querySQL = "SELECT * FROM Nombres"
             let resultados:FMResultSet? = try! miDB!.executeQuery(querySQL, withParameterDictionary: nil)
