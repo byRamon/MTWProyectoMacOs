@@ -15,8 +15,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //cargarDB("NombresDB")
         return true
+    }
+    func cargarDB(_ nombreDB: String){
+        let objetoFileManager = FileManager.default
+        let objetoFileHelper = FileHelper()
+        let pathDbEnDocumentos = objetoFileHelper.pathArchivoEnCarpetaDocumentos(nombreDB)
+        let pathDbEnBundle = objetoFileHelper.pathBaseDatosEnBundle(nombreDB)
+        if objetoFileHelper.existeArchivoEnDocumentos(nombreDB) {
+            print("DB ya existe en carpeta Documentos")
+        }
+        else{
+            do{
+                try objetoFileManager.copyItem(atPath: pathDbEnBundle, toPath: pathDbEnDocumentos)
+            }
+            catch _{
+                print("Error al copiar DB")
+            }
+        }
     }
 
     // MARK: UISceneSession Lifecycle

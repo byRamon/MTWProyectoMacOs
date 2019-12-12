@@ -10,12 +10,38 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    var palabrasNotas:[String] = ["Maestría WEB","Maestria en Redes","FIMEE"]
+    struct strucNombres: Decodable {
+        let nombres: [String]
+    }
+    var nombres:[String] = ["Maestría WEB","Maestria en Redes","FIMEE"]
+    let objetoFileHelper = FileHelper()
+    var miDB:FMDatabase?=nil
+    var alerta:UIAlertController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        miDB=FMDatabase(path: objetoFileHelper.pathArchivoEnCarpetaDocumentos("NombresDB"))
+        CargarJson()
     }
-
+    
+    func CargarJson(){
+        let urlStr = "http://192.168.64.2/Nombres.json"
+        if let url = URL(string: "http://192.168.64.2/Nombres.json") {
+           URLSession.shared.dataTask(with: url) { data, response, error in
+              if let data = data {
+                 if let jsonString = String(data: data, encoding: .utf8) {
+                    do {
+                        let res = try JSONDecoder().decode(strucNombres.self, from: data)
+                        print("existen ", res.nombres.count)
+                    } catch let error {
+                       print(error)
+                    }
+                 }
+               }
+           }.resume()
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -25,11 +51,11 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return palabrasNotas.count
+        return nombres.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = palabrasNotas[indexPath.row]
+        cell.textLabel?.text = nombres[indexPath.row]
         return cell
     }
 
