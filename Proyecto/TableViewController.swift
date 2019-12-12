@@ -13,17 +13,42 @@ class TableViewController: UITableViewController {
     struct strucNombres: Decodable {
         let nombres: [String]
     }
-    var nombres:[String] = ["Maestría WEB","Maestria en Redes","FIMEE"]
+    var nombres:[String] = []
     let objetoFileHelper = FileHelper()
     var miDB:FMDatabase?=nil
     var alerta:UIAlertController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        miDB=FMDatabase(path: objetoFileHelper.pathArchivoEnCarpetaDocumentos("NombresDB"))
+        miDB=FMDatabase(path: objetoFileHelper.pathArchivoEnCarpetaDocumentos("Proyecto"))
+        SelectAll()
         CargarJson()
     }
-    
+    func SelectAll(){
+        if (miDB!.open()){
+            let querySQL = "SELECT * FROM Nombres"
+            let resultados:FMResultSet? = try! miDB!.executeQuery(querySQL, withParameterDictionary: nil)
+            while resultados!.next() == true {
+                nombres.append(resultados!.string(forColumn: "Nombre")!)
+            }
+            miDB!.close()
+        }
+        else{
+            print("No halle")
+        }
+    }
+    func Insert(_ nombre: String){
+        if(miDB!.open()){
+            let inserta = miDB!.executeUpdate("INSERT into Nombres (Nombre) VALUES (?)", withArgumentsIn: [nombre])
+            if inserta{
+                print("hola me llamo \(nombre).")
+            }
+            else{
+                print("No Guarde")
+            }
+        }
+        miDB!.close()
+    }
     func CargarJson(){
         let urlStr = "http://192.168.64.2/Nombres.json"
         if let url = URL(string: "http://192.168.64.2/Nombres.json") {
@@ -33,6 +58,12 @@ class TableViewController: UITableViewController {
                     do {
                         let res = try JSONDecoder().decode(strucNombres.self, from: data)
                         print("existen ", res.nombres.count)
+                        for nombre in res.nombres {
+                            if !self.nombres.contains(nombre) {
+                                print("No existe ", nombre)
+                                self.Insert(nombre)
+                            }
+                        }
                     } catch let error {
                        print(error)
                     }

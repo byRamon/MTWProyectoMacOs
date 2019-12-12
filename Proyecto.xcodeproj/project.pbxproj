@@ -22,6 +22,7 @@
 		D9387E2623A2DF3900D8CB54 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D9387E1D23A2DF3900D8CB54 /* FMDatabaseAdditions.m */; };
 		D9387E2723A2DF3900D8CB54 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = D9387E1F23A2DF3900D8CB54 /* FMDatabasePool.m */; };
 		D9387E2923A2E0CF00D8CB54 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9387E2823A2E0CF00D8CB54 /* FileHelper.swift */; };
+		D9387E2F23A2EA6E00D8CB54 /* Proyecto.db in Resources */ = {isa = PBXBuildFile; fileRef = D9387E2E23A2EA6E00D8CB54 /* Proyecto.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		D9387E2123A2DF3900D8CB54 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../../../libFMDB/FMDatabase.h; sourceTree = "<group>"; };
 		D9387E2223A2DF3900D8CB54 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = ../../../libFMDB/FMResultSet.h; sourceTree = "<group>"; };
 		D9387E2823A2E0CF00D8CB54 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = ../../Proyecto_/Proyecto/FileHelper.swift; sourceTree = "<group>"; };
+		D9387E2E23A2EA6E00D8CB54 /* Proyecto.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = Proyecto.db; path = ../../SqlLite/Proyecto.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		D9387DF923A2DC1300D8CB54 /* Proyecto */ = {
 			isa = PBXGroup;
 			children = (
+				D9387E2E23A2EA6E00D8CB54 /* Proyecto.db */,
 				D9387E2823A2E0CF00D8CB54 /* FileHelper.swift */,
 				D9387E1623A2DF0000D8CB54 /* libFMDB */,
 				D9387DFA23A2DC1300D8CB54 /* AppDelegate.swift */,
@@ -186,6 +189,7 @@
 			files = (
 				D9387E0A23A2DC1400D8CB54 /* LaunchScreen.storyboard in Resources */,
 				D9387E0723A2DC1400D8CB54 /* Assets.xcassets in Resources */,
+				D9387E2F23A2EA6E00D8CB54 /* Proyecto.db in Resources */,
 				D9387E0223A2DC1300D8CB54 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
