@@ -14,6 +14,7 @@
 		D9387E0523A2DC1300D8CB54 /* Proyecto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9387E0323A2DC1300D8CB54 /* Proyecto.xcdatamodeld */; };
 		D9387E0723A2DC1400D8CB54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9387E0623A2DC1400D8CB54 /* Assets.xcassets */; };
 		D9387E0A23A2DC1400D8CB54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9387E0823A2DC1400D8CB54 /* LaunchScreen.storyboard */; };
+		D9387E1223A2DD2000D8CB54 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9387E1123A2DD2000D8CB54 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D9387E0623A2DC1400D8CB54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9387E0923A2DC1400D8CB54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9387E0B23A2DC1400D8CB54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9387E1123A2DD2000D8CB54 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				D9387DFC23A2DC1300D8CB54 /* SceneDelegate.swift */,
 				D9387DFE23A2DC1300D8CB54 /* ViewController.swift */,
 				D9387E0023A2DC1300D8CB54 /* Main.storyboard */,
+				D9387E1123A2DD2000D8CB54 /* TableViewController.swift */,
 				D9387E0623A2DC1400D8CB54 /* Assets.xcassets */,
 				D9387E0823A2DC1400D8CB54 /* LaunchScreen.storyboard */,
 				D9387E0B23A2DC1400D8CB54 /* Info.plist */,
@@ -144,6 +147,7 @@
 				D9387DFF23A2DC1300D8CB54 /* ViewController.swift in Sources */,
 				D9387DFB23A2DC1300D8CB54 /* AppDelegate.swift in Sources */,
 				D9387E0523A2DC1300D8CB54 /* Proyecto.xcdatamodeld in Sources */,
+				D9387E1223A2DD2000D8CB54 /* TableViewController.swift in Sources */,
 				D9387DFD23A2DC1300D8CB54 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ByRamon.Proyecto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -316,7 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ByRamon.Proyecto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
